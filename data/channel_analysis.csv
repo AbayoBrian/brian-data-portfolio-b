@@ -1,0 +1,6 @@
+channel,transaction_count,avg_transaction_amount,total_volume
+ATM,5005,1001.93,5014635.42
+Bank Agent,7563,994.53,7521653.57
+Bank Branch,2482,1023.79,2541041.2
+M-PESA,29861,998.96,29830008.47
+Mobile App,5089,989.41,5035085.27
