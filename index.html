@@ -3,673 +3,556 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brian Owino Abayo | Data Analyst| Quality Analyst</title>
+  <title>Brian Owino Abayo | Data Analyst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink:    #0d1117;
-      --paper:  #f5f0e8;
-      --cream:  #ede8dc;
-      --rust:   #c94a2a;
-      --rust-lt:#f2d5cc;
-      --teal:   #1a7a6e;
-      --teal-lt:#cee8e5;
-      --gold:   #b8892a;
-      --muted:  #6b6456;
-      --card:   #faf8f3;
-      --border: #ddd8cc;
+      --ink:     #0d1117;
+      --paper:   #f5f0e8;
+      --cream:   #ede8dc;
+      --rust:    #c94a2a;
+      --rust-lt: #f2d5cc;
+      --teal:    #1a7a6e;
+      --teal-lt: #cee8e5;
+      --gold:    #b8892a;
+      --muted:   #6b6456;
+      --card:    #faf8f3;
+      --border:  #ddd8cc;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.65; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: .5; }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.65;
-      cursor: default;
-    }
-
-    /* ── NOISE TEXTURE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 9999; opacity: .5;
-    }
-
-    /* ══════════════════════════════════
-       NAV
-    ══════════════════════════════════ */
-    nav {
-      position: sticky; top: 0; z-index: 900;
-      background: rgba(245,240,232,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem; letter-spacing: .02em;
-      color: var(--ink);
-    }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 900; background: rgba(245,240,232,.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(1.5rem, 5vw, 4rem); height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-size: .8rem; font-weight: 500; letter-spacing: .08em;
-      text-transform: uppercase; text-decoration: none;
-      color: var(--muted); transition: color .2s;
-    }
+    .nav-links a { font-size: .78rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color .2s; }
     .nav-links a:hover { color: var(--rust); }
 
-    /* ══════════════════════════════════
-       HERO
-    ══════════════════════════════════ */
-    .hero {
-      min-height: calc(100vh - 60px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 4rem clamp(1.5rem, 5vw, 4rem);
-      gap: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; right: -80px; top: 50%;
-      transform: translateY(-50%);
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, var(--rust-lt) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
+    /* HERO */
+    .hero { min-height: calc(100vh - 60px); display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 4rem clamp(1.5rem, 5vw, 4rem); gap: 4rem; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle at center, var(--rust-lt) 0%, transparent 70%); pointer-events: none; }
     .hero-text { position: relative; z-index: 1; }
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
-      color: var(--rust); margin-bottom: 1rem;
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: block;
-      width: 36px; height: 1px; background: var(--rust);
-    }
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      line-height: 1.08;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; display: flex; align-items: center; gap: .75rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--rust); }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 4.5vw, 4.2rem); line-height: 1.08; color: var(--ink); margin-bottom: 1.5rem; }
     .hero h1 em { font-style: italic; color: var(--rust); }
-    .hero-desc {
-      font-size: 1rem; color: var(--muted);
-      max-width: 480px; margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
+    .hero-desc { font-size: .95rem; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem; line-height: 1.85; }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .75rem 1.75rem; border-radius: 2px;
-      font-weight: 600; font-size: .85rem; letter-spacing: .04em;
-      text-decoration: none; cursor: pointer;
-      transition: transform .15s, box-shadow .15s;
-      border: none;
-    }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.75rem; border-radius: 2px; font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-decoration: none; cursor: pointer; transition: transform .15s, box-shadow .15s; border: none; font-family: inherit; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
-    .btn-rust  { background: var(--rust); color: white; }
+    .btn-rust { background: var(--rust); color: white; }
     .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
     .btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
 
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px; overflow: hidden;
-      position: relative; z-index: 1;
-    }
-    .stat-cell {
-      background: var(--card);
-      padding: 1.5rem 1.25rem;
-      text-align: center;
-      transition: background .2s;
-    }
+    .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; position: relative; z-index: 1; }
+    .stat-cell { background: var(--card); padding: 1.4rem 1.1rem; text-align: center; transition: background .2s; }
     .stat-cell:hover { background: var(--cream); }
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.4rem; color: var(--rust);
-      line-height: 1; margin-bottom: .25rem;
-    }
-    .stat-label {
-      font-size: .75rem; font-weight: 500;
-      letter-spacing: .06em; text-transform: uppercase;
-      color: var(--muted);
-    }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.1rem; color: var(--rust); line-height: 1; margin-bottom: .25rem; }
+    .stat-label { font-size: .68rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); line-height: 1.3; }
 
-    /* ══════════════════════════════════
-       SECTION WRAPPERS
-    ══════════════════════════════════ */
-    .wrap {
-      padding: 5rem clamp(1.5rem, 5vw, 4rem);
-    }
-    .section-head {
-      display: flex; align-items: baseline; gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--rust); white-space: nowrap;
-    }
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--ink); line-height: 1.1;
-    }
-    .section-rule {
-      flex: 1; height: 1px; background: var(--border);
-    }
+    /* SECTIONS */
+    .wrap { padding: 5rem clamp(1.5rem, 5vw, 4rem); }
+    .section-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rust); white-space: nowrap; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); line-height: 1.1; }
+    .section-rule { flex: 1; height: 1px; background: var(--border); }
 
-    /* ══════════════════════════════════
-       SKILLS
-    ══════════════════════════════════ */
+    /* SKILLS */
     .skills-wrap { background: var(--cream); }
-    .skills-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; }
+    .skills-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .tier-panel { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; transition: border-color .2s, box-shadow .2s; }
+    .tier-panel:hover { border-color: var(--teal); box-shadow: 4px 4px 0 var(--teal-lt); }
+    .tier-label { font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+    .tier-items { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .tier-items li { font-size: .88rem; color: var(--ink); display: flex; align-items: center; gap: .5rem; }
+    .tier-items li::before { content: '→'; color: var(--rust); font-size: .75rem; flex-shrink: 0; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .tag { padding: .35rem 1rem; border-radius: 2px; font-size: .78rem; font-weight: 500; letter-spacing: .03em; background: var(--teal-lt); color: var(--teal); border: 1px solid var(--teal); }
 
-    .skill-panel {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.75rem;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .skill-panel:hover { border-color: var(--rust); box-shadow: 4px 4px 0 var(--rust-lt); }
+    /* EXPERIENCE */
+    .exp-wrap { background: var(--ink); }
+    .exp-wrap .section-label { color: var(--rust-lt); }
+    .exp-wrap .section-title { color: white; }
+    .exp-wrap .section-rule { background: rgba(255,255,255,.15); }
+    .exp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px,1fr)); gap: 1.5rem; }
+    .exp-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 2rem; transition: border-color .2s, background .2s; }
+    .exp-card:hover { border-color: var(--rust-lt); background: rgba(255,255,255,.07); }
+    .exp-org { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: white; margin-bottom: .3rem; }
+    .exp-role { font-size: .82rem; color: var(--rust-lt); font-weight: 600; letter-spacing: .04em; margin-bottom: .25rem; }
+    .exp-period { font-family: 'DM Mono', monospace; font-size: .7rem; color: rgba(255,255,255,.4); margin-bottom: 1.25rem; }
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .exp-points li { font-size: .86rem; color: rgba(255,255,255,.65); line-height: 1.65; padding-left: 1.25rem; position: relative; }
+    .exp-points li::before { content: '·'; position: absolute; left: 0; color: var(--rust-lt); font-size: 1.2rem; line-height: 1.3; }
+    .exp-impact { display: flex; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.1); flex-wrap: wrap; }
+    .exp-metric { text-align: center; }
+    .exp-metric-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--rust-lt); }
+    .exp-metric-label { font-size: .65rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; }
 
-    .skill-panel-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem; margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: .5rem;
-    }
-    .sk { margin-bottom: 1.1rem; }
-    .sk-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .35rem; }
-    .sk-name { font-size: .85rem; font-weight: 500; }
-    .sk-pct  { font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); }
-    .sk-track {
-      height: 5px; background: var(--border); border-radius: 99px; overflow: hidden;
-    }
-    .sk-fill {
-      height: 100%; background: var(--rust); border-radius: 99px;
-      animation: fillBar .8s ease both;
-      animation-delay: var(--delay, 0s);
-    }
-    @keyframes fillBar { from { width: 0 !important; } }
+    /* CASE STUDY */
+    .case-wrap { background: var(--cream); }
+    .case-block { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; position: relative; overflow: hidden; }
+    .case-block::before { content: 'CASE STUDY'; position: absolute; top: 1.5rem; right: 1.75rem; font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .25em; color: var(--border); }
+    .gov-badge { display: inline-flex; align-items: center; gap: .5rem; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 2px; margin-bottom: 1.25rem; background: var(--teal-lt); color: var(--teal); border: 1px solid var(--teal); }
+    .case-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); color: var(--ink); margin-bottom: .5rem; line-height: 1.2; }
+    .case-meta { font-size: .85rem; color: var(--muted); margin-bottom: 2rem; }
+    .case-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .case-col h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--rust); margin-bottom: .75rem; }
+    .case-col p { font-size: .87rem; color: var(--muted); line-height: 1.75; }
+    .case-col ul { padding-left: 1.1rem; font-size: .87rem; color: var(--muted); line-height: 1.9; }
+    .case-outcomes { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 1.75rem; }
+    .co { background: var(--card); padding: 1.25rem; text-align: center; }
+    .co-num { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: var(--teal); }
+    .co-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-top: .25rem; }
 
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.5rem; }
-    .tag {
-      padding: .35rem 1rem; border-radius: 2px;
-      font-size: .78rem; font-weight: 500; letter-spacing: .03em;
-      background: var(--teal-lt); color: var(--teal);
-      border: 1px solid var(--teal);
-    }
-
-    /* ══════════════════════════════════
-       PROJECTS
-    ══════════════════════════════════ */
+    /* PROJECTS */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr)); gap: 2rem; }
-
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: box-shadow .25s, transform .25s;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,.1);
-    }
-
-    .pc-thumb {
-      height: 180px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
-      position: relative; overflow: hidden;
-    }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .25s, transform .25s; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.1); }
+    .pc-thumb { height: 200px; position: relative; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+    .pc-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .pc-thumb:hover img { transform: scale(1.04); }
+    .pc-thumb-overlay { position: absolute; inset: 0; background: rgba(13,17,23,.45); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+    .pc-thumb:hover .pc-thumb-overlay { opacity: 1; }
+    .pc-thumb-overlay span { color: white; font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.6); padding: .5rem 1.25rem; border-radius: 2px; }
     .pc-thumb-health  { background: linear-gradient(135deg,#d9ede9 0%,#a8d5cd 100%); }
     .pc-thumb-fintech { background: linear-gradient(135deg,#ffe4cc 0%,#f4b97e 100%); }
     .pc-thumb-ops     { background: linear-gradient(135deg,#dce8fb 0%,#9bbde4 100%); }
-
-    .pc-thumb img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; opacity: .9;
-    }
-    .pc-thumb .pc-emoji { position: relative; z-index: 1; filter: drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
-
     .pc-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .pc-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem; line-height: 1.3;
-      margin-bottom: .75rem; color: var(--ink);
-    }
-    .pc-badges { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
-    .badge {
-      padding: .2rem .7rem; border-radius: 2px;
-      font-size: .7rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
-      background: var(--cream); color: var(--muted); border: 1px solid var(--border);
-    }
-    .pc-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
-
-    .insight-box {
-      border-left: 3px solid var(--rust);
-      background: var(--rust-lt);
-      padding: .75rem 1rem;
-      margin-bottom: .75rem;
-      border-radius: 0 4px 4px 0;
-      font-size: .82rem;
-      line-height: 1.6;
-    }
+    .pc-title { font-family: 'DM Serif Display', serif; font-size: 1.08rem; line-height: 1.3; margin-bottom: .75rem; color: var(--ink); }
+    .pc-badges { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .85rem; }
+    .badge { padding: .2rem .7rem; border-radius: 2px; font-size: .68rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
+    .ds-source { display: inline-flex; align-items: center; gap: .4rem; font-family: 'DM Mono', monospace; font-size: .7rem; color: var(--gold); border: 1px solid var(--gold); background: #fff9ee; padding: .25rem .75rem; border-radius: 2px; margin-bottom: .85rem; }
+    .pc-desc { font-size: .87rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .insight-box { border-left: 3px solid var(--rust); background: var(--rust-lt); padding: .7rem 1rem; margin-bottom: .6rem; border-radius: 0 4px 4px 0; font-size: .81rem; line-height: 1.6; }
     .insight-box strong { color: var(--rust); }
-    .insight-box.reco {
-      border-color: var(--teal);
-      background: var(--teal-lt);
-    }
+    .insight-box.reco { border-color: var(--teal); background: var(--teal-lt); }
     .insight-box.reco strong { color: var(--teal); }
 
-    .pc-footer {
-      margin-top: auto; padding-top: 1.25rem;
-      display: flex; gap: .75rem; flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-    }
-    .link-btn {
-      font-size: .8rem; font-weight: 600; letter-spacing: .04em;
-      text-decoration: none; color: var(--rust);
-      display: inline-flex; align-items: center; gap: .3rem;
-      transition: gap .2s;
-    }
+    /* METHODOLOGY ACCORDION */
+    .method-toggle { width: 100%; text-align: left; background: none; border: 1px solid var(--border); border-radius: 2px; padding: .6rem 1rem; font-size: .8rem; font-weight: 600; color: var(--muted); cursor: pointer; margin-bottom: .6rem; display: flex; justify-content: space-between; align-items: center; font-family: inherit; transition: border-color .2s, color .2s; }
+    .method-toggle:hover { border-color: var(--teal); color: var(--teal); }
+    .method-toggle .arrow { transition: transform .25s; font-size: .7rem; }
+    .method-toggle.open .arrow { transform: rotate(180deg); }
+    .method-body { display: none; background: var(--cream); border: 1px solid var(--border); border-radius: 2px; padding: 1.1rem 1.25rem; margin-bottom: .75rem; font-size: .83rem; color: var(--muted); line-height: 1.75; }
+    .method-body.visible { display: block; }
+    .method-body ol { padding-left: 1.25rem; }
+    .method-body ol li { margin-bottom: .4rem; }
+    .method-body code { font-family: 'DM Mono', monospace; font-size: .75rem; background: var(--border); padding: .1rem .35rem; border-radius: 2px; color: var(--ink); }
+
+    .pc-footer { margin-top: auto; padding-top: 1.25rem; display: flex; gap: .75rem; flex-wrap: wrap; border-top: 1px solid var(--border); }
+    .link-btn { font-size: .79rem; font-weight: 600; letter-spacing: .03em; text-decoration: none; color: var(--rust); display: inline-flex; align-items: center; gap: .3rem; transition: gap .2s; background: none; border: none; cursor: pointer; font-family: inherit; }
     .link-btn:hover { gap: .6rem; }
-    .link-btn.report { color: var(--teal); cursor: pointer; background: none; border: none; font-family: inherit; }
+    .link-btn.teal { color: var(--teal); }
 
-    /* ══════════════════════════════════
-       INSIGHTS / REPORTS SECTION
-    ══════════════════════════════════ */
-    .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
-
-    .report-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.75rem;
-      cursor: pointer;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-      position: relative;
-    }
-    .report-card:hover {
-      border-color: var(--teal);
-      box-shadow: 4px 4px 0 var(--teal-lt);
-      transform: translateY(-2px);
-    }
-    .report-tag {
-      display: inline-block;
-      font-family: 'DM Mono', monospace;
-      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-      padding: .25rem .75rem; border-radius: 2px;
-      margin-bottom: 1rem;
-    }
+    /* REPORTS */
+    .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; }
+    .report-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .2s; position: relative; }
+    .report-card:hover { border-color: var(--teal); box-shadow: 4px 4px 0 var(--teal-lt); transform: translateY(-2px); }
+    .report-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; padding: .25rem .75rem; border-radius: 2px; margin-bottom: 1rem; }
+    .rt-gov     { background: var(--teal-lt); color: var(--teal); border: 1px solid var(--teal); }
     .rt-health  { background: var(--teal-lt); color: var(--teal); border: 1px solid var(--teal); }
-    .rt-fintech { background: #fff3dc; color: var(--gold); border: 1px solid var(--gold); }
+    .rt-fintech { background: #fff9ee; color: var(--gold); border: 1px solid var(--gold); }
     .rt-ops     { background: #dce8fb; color: #2a5cb8; border: 1px solid #2a5cb8; }
-
-    .report-card h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem; margin-bottom: .75rem; line-height: 1.3;
-    }
-    .report-card p { font-size: .85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
-    .read-link {
-      font-size: .8rem; font-weight: 600; color: var(--teal);
-      display: flex; align-items: center; gap: .4rem;
-    }
-    .report-card::after {
-      content: '↗';
-      position: absolute; top: 1.25rem; right: 1.25rem;
-      font-size: 1rem; color: var(--border);
-      transition: color .2s;
-    }
+    .report-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: .75rem; line-height: 1.3; }
+    .report-card p { font-size: .84rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+    .read-link { font-size: .79rem; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: .4rem; }
+    .report-card::after { content: '↗'; position: absolute; top: 1.25rem; right: 1.25rem; font-size: 1rem; color: var(--border); transition: color .2s; }
     .report-card:hover::after { color: var(--teal); }
 
-    /* ══════════════════════════════════
-       MODAL REPORT READER
-    ══════════════════════════════════ */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(13,17,23,.6);
-      backdrop-filter: blur(6px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity .3s;
-    }
-    .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-    .modal {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      width: 100%; max-width: 800px;
-      max-height: 90vh;
-      display: flex; flex-direction: column;
-      transform: translateY(20px);
-      transition: transform .3s;
-      box-shadow: 0 24px 80px rgba(0,0,0,.25);
-    }
-    .modal-overlay.open .modal { transform: translateY(0); }
-
-    .modal-header {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
-    }
-    .modal-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem; line-height: 1.3;
-    }
-    .modal-close {
-      background: none; border: 1px solid var(--border);
-      width: 36px; height: 36px; border-radius: 2px;
-      cursor: pointer; font-size: 1.1rem; color: var(--muted);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: border-color .2s, color .2s;
-    }
-    .modal-close:hover { border-color: var(--rust); color: var(--rust); }
-
-    .modal-body {
-      padding: 2rem;
-      overflow-y: auto;
-      flex: 1;
-    }
-    .modal-body p { font-size: .92rem; line-height: 1.85; color: var(--ink); margin-bottom: 1rem; }
-    .modal-body h4 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1rem; margin: 1.5rem 0 .5rem;
-      color: var(--rust);
-    }
-    .modal-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-    .modal-body li { font-size: .9rem; color: var(--muted); line-height: 1.8; }
-    .modal-body .highlight {
-      background: var(--cream); border-left: 3px solid var(--teal);
-      padding: 1rem 1.25rem; border-radius: 0 4px 4px 0;
-      margin: 1rem 0; font-size: .88rem;
-    }
-    .modal-body .stat-row {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-      border-radius: 4px; overflow: hidden; margin: 1.5rem 0;
-    }
-    .modal-body .stat-cell {
-      background: var(--card); padding: 1rem 1.25rem; text-align: center;
-    }
-    .modal-body .stat-big {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem; color: var(--rust); line-height: 1;
-    }
-    .modal-body .stat-sm { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-
-    .modal-footer {
-      padding: 1.25rem 2rem;
-      border-top: 1px solid var(--border);
-      display: flex; justify-content: flex-end; gap: .75rem;
-    }
-
-    /* ══════════════════════════════════
-       CONTACT
-    ══════════════════════════════════ */
+    /* CONTACT */
     .contact-wrap { background: var(--cream); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-    .contact-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .contact-heading { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem; }
     .contact-heading em { font-style: italic; color: var(--rust); }
-    .contact-desc { font-size: .95rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.8; }
+    .contact-desc { font-size: .93rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.85; }
     .contact-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
-    .contact-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--card); border: 1px solid var(--border); border-radius: 4px;
-      transition: border-color .2s;
-    }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 4px; transition: border-color .2s; }
     .contact-item:hover { border-color: var(--rust); }
-    .ci-icon {
-      width: 40px; height: 40px; border-radius: 2px;
-      background: var(--rust-lt); color: var(--rust);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .ci-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .1rem; }
-    .ci-value { font-size: .9rem; font-weight: 500; }
+    .ci-icon { width: 38px; height: 38px; border-radius: 2px; background: var(--rust-lt); color: var(--rust); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .ci-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .1rem; }
+    .ci-value { font-size: .88rem; font-weight: 500; }
 
-    /* ══════════════════════════════════
-       FOOTER
-    ══════════════════════════════════ */
-    footer {
-      background: var(--ink); color: rgba(255,255,255,.5);
-      padding: 3rem clamp(1.5rem, 5vw, 4rem);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    footer .f-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem; color: white;
-    }
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 3rem clamp(1.5rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer .f-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: white; }
     footer p { font-size: .8rem; }
     footer a { color: var(--rust-lt); text-decoration: none; }
 
-    /* ══════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════ */
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(13,17,23,.65); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--paper); border: 1px solid var(--border); border-radius: 6px; width: 100%; max-width: 820px; max-height: 90vh; display: flex; flex-direction: column; transform: translateY(20px); transition: transform .3s; box-shadow: 0 24px 80px rgba(0,0,0,.25); }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-header { padding: 1.4rem 2rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; line-height: 1.3; }
+    .modal-close { background: none; border: 1px solid var(--border); width: 34px; height: 34px; border-radius: 2px; cursor: pointer; font-size: 1rem; color: var(--muted); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color .2s, color .2s; }
+    .modal-close:hover { border-color: var(--rust); color: var(--rust); }
+    .modal-body { padding: 2rem; overflow-y: auto; flex: 1; }
+    .modal-body p { font-size: .91rem; line-height: 1.85; color: var(--ink); margin-bottom: 1rem; }
+    .modal-body h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; margin: 1.5rem 0 .5rem; color: var(--rust); }
+    .modal-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .modal-body li { font-size: .89rem; color: var(--muted); line-height: 1.8; }
+    .modal-body .highlight { background: var(--cream); border-left: 3px solid var(--teal); padding: 1rem 1.25rem; border-radius: 0 4px 4px 0; margin: 1rem 0; font-size: .87rem; }
+    .modal-body .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin: 1.5rem 0; }
+    .modal-body .s-cell { background: var(--card); padding: 1rem; text-align: center; }
+    .modal-body .s-big { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: var(--rust); line-height: 1; }
+    .modal-body .s-sm { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+    .modal-footer { padding: 1.25rem 2rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: .75rem; }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 3rem; }
       .hero::after { display: none; }
       .contact-grid { grid-template-columns: 1fr; }
+      .case-outcomes { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .hero-stats { grid-template-columns: repeat(3,1fr); }
-      .projects-grid, .reports-grid { grid-template-columns: 1fr; }
+      .projects-grid, .reports-grid, .exp-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
   <div class="nav-logo">Brian Owino Abayo</div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#case-study">Case Study</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#insights">Reports</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
-<section id="home" class="hero wrap" style="padding-top:5rem; padding-bottom:5rem;">
+<!-- HERO -->
+<section id="home" class="hero wrap" style="padding-top:5rem;padding-bottom:5rem;">
   <div class="hero-text">
-    <div class="hero-eyebrow">Data Analyst · Kenya</div>
+    <div class="hero-eyebrow">Data Analyst | SQL · Python · Power BI | MEL &amp; Quality Analytics · Kenya</div>
     <h1>Turning raw data into <em>decisions</em> that matter.</h1>
     <p class="hero-desc">
-      SQL · Python · Power BI practitioner specialising in health analytics, fintech, and operations across East Africa. Available for Data Analyst, MEL, and Research roles.
+      Data Science graduate with hands-on experience in government information systems, health analytics, credit risk modelling, and operations efficiency. Available for Data Analyst, MEL Officer, Quality Analyst, and Research roles.
     </p>
     <div class="hero-ctas">
-      <a href="cv.pdf" download class="btn btn-rust">↓ Download CV</a>
-      <a href="https://github.com/" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-      <a href="https://linkedin.com/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="Brian_Owino_Abayo_CV.pdf" download class="btn btn-rust">↓ Download CV</a>
+      <a href="https://github.com/AbayoBrian/brian-data-portfolio-b" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://linkedin.com/in/abayo-brian-a6658b263" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
   </div>
 
   <div class="hero-stats">
     <div class="stat-cell">
-      <div class="stat-num">3+</div>
-      <div class="stat-label">Domains</div>
+      <div class="stat-num">Gov't</div>
+      <div class="stat-label">Info System Built</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num">50K+</div>
-      <div class="stat-label">Rows Analysed</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">0.85</div>
-      <div class="stat-label">Best AUC-ROC</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">16</div>
-      <div class="stat-label">Regions Mapped</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">8yr</div>
-      <div class="stat-label">Health Data</div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Professional Internships</div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">3</div>
-      <div class="stat-label">Portfolios</div>
+      <div class="stat-label">Analytics Projects</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">40%</div>
+      <div class="stat-label">Data Quality Improvement</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">70%</div>
+      <div class="stat-label">Reporting Automation</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">50K+</div>
+      <div class="stat-label">Records Analysed</div>
     </div>
   </div>
 </section>
 
-<!-- ── SKILLS ── -->
+<!-- SKILLS -->
 <section id="skills" class="skills-wrap wrap">
   <div class="section-head">
     <span class="section-label">01 · Skills</span>
     <h2 class="section-title">Technical Proficiency</h2>
     <div class="section-rule"></div>
   </div>
-
-  <div class="skills-layout">
-    <div class="skill-panel">
-      <div class="skill-panel-title">📊 Data Tools</div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">SQL</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" style="width:90%;--delay:.1s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Python</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.2s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Power BI</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-fill" style="width:88%;--delay:.3s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Excel</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.4s"></div></div></div>
+  <div class="skills-tiers">
+    <div class="tier-panel">
+      <div class="tier-label">Advanced</div>
+      <ul class="tier-items">
+        <li>SQL (PostgreSQL · MySQL)</li>
+        <li>Excel (Pivot Tables · Power Query)</li>
+        <li>Data Cleaning &amp; Validation</li>
+        <li>Root Cause Analysis</li>
+        <li>Quality Reporting (Weekly / Monthly)</li>
+      </ul>
     </div>
-    <div class="skill-panel">
-      <div class="skill-panel-title">📈 Analytics Skills</div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Data Cleaning</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" style="width:90%;--delay:.1s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Statistical Analysis</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.2s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Data Visualisation</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-fill" style="width:88%;--delay:.3s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Dashboard Design</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.4s"></div></div></div>
+    <div class="tier-panel">
+      <div class="tier-label">Intermediate</div>
+      <ul class="tier-items">
+        <li>Python (Pandas · NumPy)</li>
+        <li>Power BI</li>
+        <li>Looker Studio</li>
+        <li>Streamlit Dashboards</li>
+        <li>Statistical Analysis</li>
+      </ul>
     </div>
-    <div class="skill-panel">
-      <div class="skill-panel-title">🏢 Domain Knowledge</div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Health Analytics</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.1s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Financial Analytics</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" style="width:80%;--delay:.2s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">Operations Analytics</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%;--delay:.3s"></div></div></div>
-      <div class="sk"><div class="sk-row"><span class="sk-name">MEL Systems</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" style="width:80%;--delay:.4s"></div></div></div>
+    <div class="tier-panel">
+      <div class="tier-label">Working Knowledge</div>
+      <ul class="tier-items">
+        <li>Machine Learning (Scikit-learn)</li>
+        <li>Plotly · Matplotlib</li>
+        <li>R</li>
+        <li>Git &amp; GitHub</li>
+        <li>MEL Frameworks</li>
+      </ul>
     </div>
   </div>
-
   <div class="tag-cloud">
     <span class="tag">Data Quality Assurance</span>
-    <span class="tag">Root Cause Analysis</span>
-    <span class="tag">Predictive Modeling</span>
+    <span class="tag">Pareto &amp; Trend Analysis</span>
     <span class="tag">ETL Pipelines</span>
-    <span class="tag">A/B Testing</span>
+    <span class="tag">Dashboard Design</span>
     <span class="tag">Report Automation</span>
-    <span class="tag">K-Means Clustering</span>
-    <span class="tag">Random Forest</span>
-    <span class="tag">Looker Studio</span>
-    <span class="tag">Plotly / Matplotlib</span>
-    <span class="tag">Pandas / NumPy</span>
-    <span class="tag">Scikit-learn</span>
+    <span class="tag">Predictive Modelling</span>
+    <span class="tag">MEL Systems</span>
+    <span class="tag">Stakeholder Reporting</span>
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
-<section id="projects" class="wrap">
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-wrap wrap">
   <div class="section-head">
-    <span class="section-label">02 · Work</span>
-    <h2 class="section-title">Featured Projects</h2>
+    <span class="section-label">02 · Experience</span>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="section-rule" style="background:rgba(255,255,255,.15);"></div>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-org">National Irrigation Authority</div>
+      <div class="exp-role">Data Analyst / MEL &amp; Quality Data Support Intern</div>
+      <div class="exp-period">May 2025 – Aug 2025 · Baringo County, Kenya</div>
+      <ul class="exp-points">
+        <li>Built an Irrigation Information Management System using Python, SQL, and Streamlit — adopted by field supervisors for daily operational monitoring</li>
+        <li>Cleaned and validated 5,000+ agricultural operational records across 5 zones; improved data accuracy by 40%</li>
+        <li>Designed automated validation rules to detect duplicates, out-of-range values, and missing fields in real time</li>
+        <li>Reduced monthly report consolidation from 3–5 days to same-day automated export</li>
+        <li>Supported Root Cause Analysis for 3 irrigation underperformance incidents using structured defect summaries</li>
+      </ul>
+      <div class="exp-impact">
+        <div class="exp-metric"><div class="exp-metric-num">40%</div><div class="exp-metric-label">Data Quality ↑</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">5K+</div><div class="exp-metric-label">Records Cleaned</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">Same-Day</div><div class="exp-metric-label">Report Generation</div></div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-org">Kenya Methodist University</div>
+      <div class="exp-role">Data Analyst Intern — Institutional Analytics &amp; Reporting</div>
+      <div class="exp-period">May 2024 – Aug 2024 · Kenya</div>
+      <ul class="exp-points">
+        <li>Automated reporting workflows using Python scripts, reducing manual data processing effort by 70%</li>
+        <li>Built Tableau dashboards for institutional performance monitoring and quality reporting</li>
+        <li>Conducted data validation, cleaning, and integrity checks across institutional datasets</li>
+        <li>Developed predictive models achieving 88% accuracy for student performance forecasting</li>
+        <li>Supported data quality audits and ensured consistency across reporting systems</li>
+      </ul>
+      <div class="exp-impact">
+        <div class="exp-metric"><div class="exp-metric-num">70%</div><div class="exp-metric-label">Automation Achieved</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">88%</div><div class="exp-metric-label">Model Accuracy</div></div>
+        <div class="exp-metric"><div class="exp-metric-num">Tableau</div><div class="exp-metric-label">Dashboards Built</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case-study" class="case-wrap wrap">
+  <div class="section-head">
+    <span class="section-label">03 · Deep Dive</span>
+    <h2 class="section-title">Government Case Study</h2>
     <div class="section-rule"></div>
   </div>
+  <div class="case-block">
+    <div class="gov-badge">✦ Real Organisational Work · Government of Kenya</div>
+    <h3 class="case-title">National Irrigation Authority — Irrigation Information Management System</h3>
+    <p class="case-meta">Baringo County, Kenya · May – Aug 2025 · Python · SQL · Streamlit · Excel</p>
 
+    <div class="case-cols">
+      <div class="case-col">
+        <h4>Challenge</h4>
+        <p>The Authority tracked irrigation infrastructure, water usage, and field agent activities across 5 zones using paper forms and disconnected spreadsheets. Monthly reports took 3–5 days to consolidate manually. No validation layer existed — duplicates and missing records were only discovered after submission.</p>
+      </div>
+      <div class="case-col">
+        <h4>Solution</h4>
+        <ul>
+          <li>Profiled all existing Excel files to identify data quality issues</li>
+          <li>Cleaned 5,000+ records using Python — standardised fields, resolved duplicates, flagged irrecoverable entries for re-collection</li>
+          <li>Designed a normalised SQLite schema with tables for zones, assets, water usage, and agent records</li>
+          <li>Built automated validation rules: duplicate detection, out-of-range checks, mandatory field enforcement</li>
+          <li>Developed a Streamlit dashboard with zone-level views and exportable monthly templates</li>
+        </ul>
+      </div>
+      <div class="case-col">
+        <h4>Outcome</h4>
+        <ul>
+          <li>Data accuracy improved by 40% (pre- vs post-implementation audit comparison)</li>
+          <li>Report generation time reduced from 3–5 days to same-day automated export</li>
+          <li>Recurring entry errors dropped by over 60% after validation deployment</li>
+          <li>Dashboard adopted by field supervisors within 3 weeks</li>
+          <li>3 underperformance incidents investigated using system-generated defect summaries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-outcomes">
+      <div class="co"><div class="co-num">40%</div><div class="co-label">Data Quality Improvement</div></div>
+      <div class="co"><div class="co-num">5K+</div><div class="co-label">Records Processed</div></div>
+      <div class="co"><div class="co-num">5</div><div class="co-label">Operational Zones</div></div>
+      <div class="co"><div class="co-num">Same-Day</div><div class="co-label">Report Generation</div></div>
+    </div>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="https://github.com/AbayoBrian/brian-data-portfolio-b" target="_blank" class="link-btn teal">GitHub Repository ↗</a>
+      <button class="link-btn" style="color:var(--rust);" onclick="openReport('nia')">📄 Read Full Case Study →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="wrap">
+  <div class="section-head">
+    <span class="section-label">04 · Portfolio Projects</span>
+    <h2 class="section-title">Analytical Projects</h2>
+    <div class="section-rule"></div>
+  </div>
   <div class="projects-grid">
 
     <!-- HEALTH -->
     <div class="project-card">
-      <div class="pc-thumb pc-thumb-health">
-        <img src="images/health_dashboard.png" alt="Health Dashboard" onerror="this.style.display='none'" />
-        <span class="pc-emoji">🏥</span>
+      <div class="pc-thumb pc-thumb-health" onclick="window.open('https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/kenya_health_dashboard_overview.png','_blank')">
+        <img src="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/kenya_health_dashboard_overview.png" alt="Kenya Health Dashboard" />
+        <div class="pc-thumb-overlay"><span>View Full Dashboard</span></div>
       </div>
       <div class="pc-body">
-        <h3 class="pc-title">Kenya Disease Burden & Health Facility Performance Dashboard</h3>
+        <h3 class="pc-title">Kenya Disease Burden &amp; Health Facility Performance</h3>
         <div class="pc-badges">
           <span class="badge">Python</span><span class="badge">SQL</span>
-          <span class="badge">Pandas</span><span class="badge">Plotly</span>
-          <span class="badge">Looker Studio</span>
+          <span class="badge">Pandas</span><span class="badge">Plotly</span><span class="badge">Looker Studio</span>
         </div>
-        <p class="pc-desc">Analysed 8 years of health data across 12 Kenyan regions and 8 diseases to identify high-burden areas and support public health resource allocation.</p>
+        <div class="ds-source">📂 Synthetic · Modelled on WHO Kenya Health Indicators 2018–2025</div>
+        <p class="pc-desc">Analysed 8 years of health facility records across 12 Kenyan regions and 8 diseases to identify high-burden areas and model resource allocation scenarios.</p>
         <div class="insight-box"><strong>🔍 Key Insight:</strong> 2 diseases account for 80% of disease burden. Western region shows 58% higher incidence than national average.</div>
         <div class="insight-box reco"><strong>📋 Recommendation:</strong> Prioritise malaria prevention budget for high-burden regions. Deploy mobile health units to areas with access scores below 0.5.</div>
+
+        <button class="method-toggle" onclick="toggleMethod(this)">
+          Methodology <span class="arrow">▼</span>
+        </button>
+        <div class="method-body">
+          <ol>
+            <li><strong>Business Problem:</strong> Identify high-burden disease regions to guide public health budget allocation</li>
+            <li><strong>Dataset:</strong> Synthetic records for 12 regions × 8 diseases × 8 years, modelled on WHO Kenya data distributions</li>
+            <li><strong>Data Cleaning:</strong> Checked for nulls, validated incidence rates, standardised region names using <code>pandas</code></li>
+            <li><strong>SQL Analysis:</strong> Wrote queries for Pareto distribution, mortality correlation, and year-on-year trend using <code>SQLite</code> in Python</li>
+            <li><strong>Visualisation:</strong> Built regional map with <code>Plotly</code>; scatter plot for access score vs mortality; trend charts</li>
+            <li><strong>Dashboard:</strong> Exported to Looker Studio via CSV; published interactive HTML maps</li>
+            <li><strong>Output:</strong> Written insight report with 4 prioritised recommendations</li>
+          </ol>
+        </div>
+
         <div class="pc-footer">
-          <a href="interactive/kenya_health_regional_map.html" class="link-btn" target="_blank">View Interactive Map →</a>
-          <button class="link-btn report" onclick="openReport('health')">📄 Read Report →</button>
+          <a href="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/interactive/kenya_health_regional_map.html" class="link-btn" target="_blank">Interactive Map →</a>
+          <a href="https://github.com/AbayoBrian/brian-data-portfolio-b" class="link-btn teal" target="_blank">GitHub ↗</a>
+          <button class="link-btn" style="color:var(--teal);" onclick="openReport('health')">📄 Report →</button>
         </div>
       </div>
     </div>
 
     <!-- FINTECH -->
     <div class="project-card">
-      <div class="pc-thumb pc-thumb-fintech">
-        <img src="images/credit_risk_dashboard.png" alt="Credit Risk Dashboard" onerror="this.style.display='none'" />
-        <span class="pc-emoji">💰</span>
+      <div class="pc-thumb pc-thumb-fintech" onclick="window.open('https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/credit_risk_dashboard.png','_blank')">
+        <img src="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/credit_risk_dashboard.png" alt="Credit Risk Dashboard" />
+        <div class="pc-thumb-overlay"><span>View Full Dashboard</span></div>
       </div>
       <div class="pc-body">
-        <h3 class="pc-title">Mobile Money Transaction & Credit Risk Segmentation</h3>
+        <h3 class="pc-title">Mobile Money Transaction &amp; Credit Risk Segmentation</h3>
         <div class="pc-badges">
           <span class="badge">Python</span><span class="badge">SQL</span>
-          <span class="badge">Scikit-learn</span><span class="badge">Random Forest</span>
-          <span class="badge">Power BI</span>
+          <span class="badge">Scikit-learn</span><span class="badge">Random Forest</span><span class="badge">Power BI</span>
         </div>
+        <div class="ds-source">📂 Synthetic · 50K transactions generated to mirror M-PESA lending patterns</div>
         <p class="pc-desc">Analysed 50,000+ transactions across 5,000 customers to identify high-risk segments and build a credit risk prediction model (AUC-ROC: 0.85).</p>
         <div class="insight-box"><strong>🔍 Key Insight:</strong> Customers under 25 have 3× higher default rate. Top 20% of customers drive 65% of transaction volume.</div>
         <div class="insight-box reco"><strong>📋 Recommendation:</strong> Implement lower credit limits for 18–24 age group. Create premium product for medium-value, low-risk segment.</div>
+
+        <button class="method-toggle" onclick="toggleMethod(this)">
+          Methodology <span class="arrow">▼</span>
+        </button>
+        <div class="method-body">
+          <ol>
+            <li><strong>Business Problem:</strong> Identify which customers are high default risk before extending mobile loans</li>
+            <li><strong>Dataset:</strong> Synthetic — 5,000 customers, 50K transactions generated using realistic M-PESA behavioural distributions</li>
+            <li><strong>Feature Engineering:</strong> Transaction frequency, recency, average amount, std deviation, age group, income tier</li>
+            <li><strong>SQL Analysis:</strong> Default rates by segment, channel preference, Pareto concentration of transaction volume</li>
+            <li><strong>Modelling:</strong> Random Forest (AUC-ROC: 0.85) vs Logistic Regression baseline (AUC-ROC: 0.71); evaluated with classification report</li>
+            <li><strong>Segmentation:</strong> K-Means (k=4) to identify High-Value/Low-Risk, Medium-Value, Low-Value/High-Risk, and Dormant segments</li>
+            <li><strong>Output:</strong> Risk heatmap by age group and location; written recommendations for credit product design</li>
+          </ol>
+        </div>
+
         <div class="pc-footer">
-          <a href="#" class="link-btn">View Dashboard →</a>
-          <button class="link-btn report" onclick="openReport('fintech')">📄 Read Report →</button>
+          <a href="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/interactive/customer_segmentation.html" class="link-btn" target="_blank">Segmentation →</a>
+          <a href="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/interactive/risk_heatmap.html" class="link-btn" target="_blank">Risk Heatmap →</a>
+          <a href="https://github.com/AbayoBrian/brian-data-portfolio-b" class="link-btn teal" target="_blank">GitHub ↗</a>
+          <button class="link-btn" style="color:var(--teal);" onclick="openReport('fintech')">📄 Report →</button>
         </div>
       </div>
     </div>
 
     <!-- OPS -->
     <div class="project-card">
-      <div class="pc-thumb pc-thumb-ops">
-        <img src="images/operations_dashboard.png" alt="Operations Dashboard" onerror="this.style.display='none'" />
-        <span class="pc-emoji">🏭</span>
+      <div class="pc-thumb pc-thumb-ops" onclick="window.open('https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/operations_dashboard.png','_blank')">
+        <img src="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/images/operations_dashboard.png" alt="Operations Dashboard" />
+        <div class="pc-thumb-overlay"><span>View Full Dashboard</span></div>
       </div>
       <div class="pc-body">
-        <h3 class="pc-title">Clean Cooking Stove Distribution & Field Operations Efficiency</h3>
+        <h3 class="pc-title">Clean Cooking Stove Distribution &amp; Field Operations Efficiency</h3>
         <div class="pc-badges">
           <span class="badge">Python</span><span class="badge">SQL</span>
-          <span class="badge">Pandas</span><span class="badge">K-Means</span>
-          <span class="badge">Power BI</span>
+          <span class="badge">K-Means</span><span class="badge">Pandas</span><span class="badge">Power BI</span>
         </div>
-        <p class="pc-desc">Analysed 10,000+ delivery records across 16 Kenyan regions to identify logistics bottlenecks and optimise field agent performance.</p>
-        <div class="insight-box"><strong>🔍 Key Insight:</strong> 3 regions cause 80% of delivery delays. Q4 shows 35% higher delivery times due to seasonal factors.</div>
-        <div class="insight-box reco"><strong>📋 Recommendation:</strong> Open satellite warehouse in high-delay region. Implement route optimisation for long-distance deliveries.</div>
+        <div class="ds-source">📂 Synthetic · Modelled on last-mile distribution logistics in Kenya</div>
+        <p class="pc-desc">Analysed 10,000+ delivery records across 16 Kenyan regions to identify logistics bottlenecks and optimise field agent performance using cluster analysis.</p>
+        <div class="insight-box"><strong>🔍 Key Insight:</strong> 3 regions cause 80% of delivery delays. Q4 shows 35% higher delivery times due to seasonal road conditions.</div>
+        <div class="insight-box reco"><strong>📋 Recommendation:</strong> Open satellite warehouse in highest-delay region. Implement route optimisation for deliveries exceeding 120km.</div>
+
+        <button class="method-toggle" onclick="toggleMethod(this)">
+          Methodology <span class="arrow">▼</span>
+        </button>
+        <div class="method-body">
+          <ol>
+            <li><strong>Business Problem:</strong> Identify which regions and agents cause delivery delays and why</li>
+            <li><strong>Dataset:</strong> Synthetic — 10,000+ delivery records across 16 counties with distance, seasonality, and quantity variables</li>
+            <li><strong>Data Cleaning:</strong> Standardised region names, capped outlier delivery times at 99th percentile, filled missing vehicle type from quantity rules</li>
+            <li><strong>SQL Analysis:</strong> Pareto delay analysis by region; seasonal performance by quarter; stove model delay rates</li>
+            <li><strong>Root Cause Analysis:</strong> Multi-factor regression to weight distance (45%), road condition (31%), and agent workload (24%) as delay drivers</li>
+            <li><strong>Clustering:</strong> K-Means on agent performance (delivery time + rating) to tier agents into 3 performance groups</li>
+            <li><strong>Output:</strong> Satellite warehouse ROI model; route optimisation scenarios; agent retraining recommendations</li>
+          </ol>
+        </div>
+
         <div class="pc-footer">
-          <a href="interactive/operations_performance_map.html" class="link-btn" target="_blank">View Ops Map →</a>
-          <button class="link-btn report" onclick="openReport('ops')">📄 Read Report →</button>
+          <a href="https://raw.githubusercontent.com/AbayoBrian/brian-data-portfolio-b/main/interactive/operations_performance_map.html" class="link-btn" target="_blank">Ops Map →</a>
+          <a href="https://github.com/AbayoBrian/brian-data-portfolio-b" class="link-btn teal" target="_blank">GitHub ↗</a>
+          <button class="link-btn" style="color:var(--teal);" onclick="openReport('ops')">📄 Report →</button>
         </div>
       </div>
     </div>
@@ -677,88 +560,85 @@
   </div>
 </section>
 
-<!-- ── INSIGHTS / REPORTS ── -->
+<!-- REPORTS -->
 <section id="insights" class="skills-wrap wrap">
   <div class="section-head">
-    <span class="section-label">03 · Insights</span>
+    <span class="section-label">05 · Insights</span>
     <h2 class="section-title">Analytical Reports</h2>
     <div class="section-rule"></div>
   </div>
-
   <div class="reports-grid">
+    <div class="report-card" onclick="openReport('nia')">
+      <span class="report-tag rt-gov">Government · NIA</span>
+      <h3>Irrigation Information Management System: Implementation Report</h3>
+      <p>Full case study covering data quality methodology, system architecture, and MEL reporting framework built for National Irrigation Authority, Baringo County.</p>
+      <div class="read-link">Read full report <span>↗</span></div>
+    </div>
     <div class="report-card" onclick="openReport('health')">
       <span class="report-tag rt-health">Health Analytics</span>
       <h3>Malaria Burden in Western Kenya: A 5-Year Analysis</h3>
-      <p>Malaria cases increased 23% over 5 years, with Western region accounting for 58% of total burden. Healthcare access scores below 0.5 correlate with 40% higher mortality rates.</p>
+      <p>Malaria cases increased 23% over 5 years. Western region accounts for 58% of total burden. Healthcare access scores below 0.5 correlate with 40% higher mortality.</p>
       <div class="read-link">Read full report <span>↗</span></div>
     </div>
     <div class="report-card" onclick="openReport('fintech')">
       <span class="report-tag rt-fintech">Fintech Analytics</span>
-      <h3>Mobile Money Usage Patterns in Kenya: Risk Segmentation</h3>
-      <p>Young adults (18–24) show highest default risk but also fastest transaction growth. Medium-value segment offers optimal risk-return profile for lending products.</p>
+      <h3>Mobile Money Usage Patterns: Risk Segmentation Report</h3>
+      <p>Young adults (18–24) show highest default risk. Random Forest model achieved AUC-ROC of 0.85. Medium-value segment offers optimal risk-return profile.</p>
       <div class="read-link">Read full report <span>↗</span></div>
     </div>
     <div class="report-card" onclick="openReport('ops')">
       <span class="report-tag rt-ops">Operations Analytics</span>
-      <h3>Logistics Efficiency in Last-Mile Distribution</h3>
-      <p>Three regions account for 80% of delivery delays. Opening satellite warehouses could reduce delivery time by 40% in high-delay regions.</p>
+      <h3>Last-Mile Logistics Efficiency: Delivery Bottleneck Analysis</h3>
+      <p>Three regions account for 80% of delivery delays. Satellite warehouse investment of KES 4.2M estimated to break even within 14 months.</p>
       <div class="read-link">Read full report <span>↗</span></div>
     </div>
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- CONTACT -->
 <section id="contact" class="contact-wrap wrap">
   <div class="section-head">
-    <span class="section-label">04 · Contact</span>
+    <span class="section-label">06 · Contact</span>
     <h2 class="section-title">Let's Connect</h2>
     <div class="section-rule"></div>
   </div>
   <div class="contact-grid">
     <div>
       <h2 class="contact-heading">Open to <em>new opportunities</em>.</h2>
-      <p class="contact-desc">I'm actively seeking Data Analyst, Quality Analyst, MEL, and Research Officer roles. If you're working on data-driven problems in health, finance, or operations — let's talk.</p>
+      <p class="contact-desc">Actively seeking Data Analyst, Quality Analyst, MEL Officer, and Research roles. Hands-on experience with government data systems, NGO reporting frameworks, and fintech analytics in East Africa.</p>
       <div class="contact-ctas">
-        <a href="cv.pdf" download class="btn btn-rust">↓ Download CV</a>
+        <a href="Brian_Owino_Abayo_CV.pdf" download class="btn btn-rust">↓ Download CV</a>
         <a href="mailto:owinb239@gmail.com" class="btn btn-ghost">Send Email</a>
       </div>
     </div>
     <div class="contact-details">
       <div class="contact-item">
         <div class="ci-icon">📍</div>
-        <div>
-          <div class="ci-label">Location</div>
-          <div class="ci-value">Homabay, Kenya</div>
-        </div>
+        <div><div class="ci-label">Location</div><div class="ci-value">Homabay, Kenya</div></div>
       </div>
       <div class="contact-item">
         <div class="ci-icon">📞</div>
-        <div>
-          <div class="ci-label">Phone</div>
-          <div class="ci-value">+254 793 401 572</div>
-        </div>
+        <div><div class="ci-label">Phone</div><div class="ci-value">+254 793 401 572</div></div>
       </div>
       <div class="contact-item">
         <div class="ci-icon">✉️</div>
-        <div>
-          <div class="ci-label">Email</div>
-          <div class="ci-value"><a href="mailto:owinb239@gmail.com" style="color:var(--rust); text-decoration:none;">owinb239@gmail.com</a></div>
-        </div>
+        <div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:owinb239@gmail.com" style="color:var(--rust);text-decoration:none;">owinb239@gmail.com</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🔗</div>
+        <div><div class="ci-label">LinkedIn</div><div class="ci-value"><a href="https://linkedin.com/in/abayo-brian-a6658b263" target="_blank" style="color:var(--rust);text-decoration:none;">abayo-brian-a6658b263 ↗</a></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <div class="f-logo">Brian Owino Abayo</div>
-  <p>Data Analyst · Available· <a href="mailto:owinb239@gmail.com">owinb239@gmail.com</a></p>
+  <p>Data Analyst · Available · <a href="mailto:owinb239@gmail.com">owinb239@gmail.com</a></p>
   <p>© 2026 · Built with HTML/CSS</p>
 </footer>
 
-<!-- ══════════════════════════════════
-     MODAL REPORT READER
-══════════════════════════════════ -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeIfBackdrop(event)">
   <div class="modal" id="modalBox">
     <div class="modal-header">
@@ -767,190 +647,169 @@
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer">
-      <a id="modalDownload" href="#" download class="btn btn-ghost" style="font-size:.8rem;">↓ Download .txt</a>
       <button onclick="closeModal()" class="btn btn-rust" style="font-size:.8rem;">Close</button>
     </div>
   </div>
 </div>
 
 <script>
-  /* ── REPORT CONTENT ──────────────────────────────── */
-  const reports = {
-    health: {
-      title: 'Malaria Burden in Western Kenya: A 5-Year Analysis',
-      file: 'reports/health_insight_report.txt',
-      content: `
-        <div class="stat-row">
-          <div class="stat-cell"><div class="stat-big">58%</div><div class="stat-sm">Western Region Share</div></div>
-          <div class="stat-cell"><div class="stat-big">+23%</div><div class="stat-sm">5-Year Case Increase</div></div>
-          <div class="stat-cell"><div class="stat-big">+40%</div><div class="stat-sm">Mortality – Low Access Areas</div></div>
-          <div class="stat-cell"><div class="stat-big">12</div><div class="stat-sm">Regions Analysed</div></div>
-        </div>
-
-        <h4>Executive Summary</h4>
-        <p>This report analyses eight years of health facility records across 12 Kenyan regions, focusing on disease incidence, healthcare access, and resource allocation efficiency for eight notifiable diseases.</p>
-
-        <div class="highlight">
-          <strong>Key Finding:</strong> Just two diseases — malaria and respiratory infections — account for 80% of total disease burden across all regions studied.
-        </div>
-
-        <h4>Regional Disease Burden</h4>
-        <p>Western Kenya recorded a 58% higher disease incidence than the national average across the study period (2016–2024). Malaria alone accounted for approximately 43% of all cases in this region, significantly above the national figure of 28%.</p>
-        <p>Healthcare access scores below 0.5 (on a normalised 0–1 scale) were found to correlate strongly with 40% higher mortality rates, pointing to infrastructure gaps as a key driver of poor outcomes.</p>
-
-        <h4>Trend Analysis (2019–2024)</h4>
-        <p>Malaria cases increased 23% over the five-year study window despite national prevention campaigns. Seasonal peaks in April–May and October–November align with long and short rains, confirming climate-driven transmission patterns.</p>
-        <ul>
-          <li>Nyanza sub-region: +31% year-on-year increase (2021–2022)</li>
-          <li>Western region: lowest average healthcare access score (0.38)</li>
-          <li>Nairobi / Central: access scores above 0.75; lowest incidence rates</li>
-        </ul>
-
-        <h4>Health Facility Performance</h4>
-        <p>Facilities in high-burden areas showed an average patient-to-staff ratio of 1:420, compared to 1:180 in lower-burden regions. Stock-out rates for antimalarial drugs reached 34% in Q2 of each year — coinciding with peak demand.</p>
-
-        <h4>Recommendations</h4>
-        <ul>
-          <li>Redirect at least 40% of national malaria prevention budget to the three highest-burden sub-regions.</li>
-          <li>Deploy mobile health units to all facilities with access scores below 0.5.</li>
-          <li>Pre-position antimalarial drug stocks by February and September to prevent stock-outs during peak transmission windows.</li>
-          <li>Invest in community health worker networks in Nyanza to improve early case detection.</li>
-        </ul>
-
-        <div class="highlight">
-          <strong>Impact Estimate:</strong> Targeted resource reallocation could reduce malaria mortality in Western Kenya by an estimated 18–25% within two years, based on comparable interventions in Tanzania and Uganda.
-        </div>
-      `
-    },
-
-    fintech: {
-      title: 'Mobile Money Usage Patterns in Kenya: Risk Segmentation',
-      file: 'reports/credit_risk_report.txt',
-      content: `
-        <div class="stat-row">
-          <div class="stat-cell"><div class="stat-big">50K+</div><div class="stat-sm">Transactions</div></div>
-          <div class="stat-cell"><div class="stat-big">3×</div><div class="stat-sm">Under-25 Default Rate</div></div>
-          <div class="stat-cell"><div class="stat-big">65%</div><div class="stat-sm">Volume from Top 20%</div></div>
-          <div class="stat-cell"><div class="stat-big">0.85</div><div class="stat-sm">AUC-ROC Score</div></div>
-        </div>
-
-        <h4>Executive Summary</h4>
-        <p>This analysis covers 50,000+ transactions across 5,000 unique customers to profile credit risk, segment customer behaviour, and evaluate a predictive default model for mobile lending products.</p>
-
-        <div class="highlight">
-          <strong>Model Performance:</strong> The Random Forest classifier achieved an AUC-ROC of 0.85 and a precision of 0.79, outperforming the logistic regression baseline (AUC-ROC: 0.71) on the holdout test set.
-        </div>
-
-        <h4>Customer Risk Segments</h4>
-        <p>K-Means clustering (k=4) identified four behavioural segments: High-Value / Low-Risk (23%), Medium-Value / Medium-Risk (38%), Low-Value / High-Risk (27%), and Dormant (12%). The Medium-Value segment represents the optimal lending target — stable transaction frequency, moderate loan amounts, and default rates below 8%.</p>
-
-        <h4>Age-Based Default Analysis</h4>
-        <ul>
-          <li><strong>18–24:</strong> 34% default rate — 3× higher than average</li>
-          <li><strong>25–34:</strong> 12% default rate — broadly aligned with market average</li>
-          <li><strong>35–50:</strong> 7% default rate — best performing cohort</li>
-          <li><strong>50+:</strong> 9% default rate — slightly elevated but smaller portfolio share</li>
-        </ul>
-
-        <h4>Transaction Concentration</h4>
-        <p>The top 20% of customers (by transaction value) account for 65% of total volume and 71% of repaid loan value. This Pareto-style distribution suggests significant upside from a premium product tier targeting this cohort.</p>
-
-        <h4>Recommendations</h4>
-        <ul>
-          <li>Cap initial credit limits for 18–24 cohort at KES 2,000 with staged increases tied to repayment history.</li>
-          <li>Launch a "premium" lending product for the Medium-Value / Low-Risk segment with higher limits and reduced fees.</li>
-          <li>Implement real-time transaction monitoring flags for accounts showing rapid balance drawdowns (top predictor in the model).</li>
-          <li>Introduce a 30-day financial literacy module for new users under 25 before credit eligibility.</li>
-        </ul>
-      `
-    },
-
-    ops: {
-      title: 'Logistics Efficiency in Last-Mile Distribution',
-      file: 'reports/operations_report.txt',
-      content: `
-        <div class="stat-row">
-          <div class="stat-cell"><div class="stat-big">10K+</div><div class="stat-sm">Delivery Records</div></div>
-          <div class="stat-cell"><div class="stat-big">80%</div><div class="stat-sm">Delays from 3 Regions</div></div>
-          <div class="stat-cell"><div class="stat-big">+35%</div><div class="stat-sm">Q4 Delivery Time</div></div>
-          <div class="stat-cell"><div class="stat-big">−40%</div><div class="stat-sm">Potential Time Saving</div></div>
-        </div>
-
-        <h4>Executive Summary</h4>
-        <p>This report analyses 10,000+ clean cooking stove delivery records across 16 Kenyan counties to benchmark field agent productivity, identify systemic delay causes, and model logistics optimisation scenarios.</p>
-
-        <div class="highlight">
-          <strong>Key Finding:</strong> Three regions (Turkana, Mandera, and Wajir) are responsible for 80% of deliveries exceeding the 5-day SLA threshold — despite accounting for only 22% of total delivery volume.
-        </div>
-
-        <h4>Delay Root Cause Analysis</h4>
-        <p>Multi-factor analysis revealed three primary drivers of delivery delays:</p>
-        <ul>
-          <li><strong>Distance from central warehouse (45% weight):</strong> Average last-mile distance of 187km in high-delay regions vs. 62km nationally.</li>
-          <li><strong>Road condition score (31% weight):</strong> All three high-delay regions scored below 3/10 on the Kenya National Highways Authority passability index during rainy season.</li>
-          <li><strong>Agent workload concentration (24% weight):</strong> Top 5 agents handle 38% of northern-region deliveries, creating single points of failure.</li>
-        </ul>
-
-        <h4>Seasonal Patterns</h4>
-        <p>Q4 (October–December) shows a 35% increase in average delivery time, driven by short-rains road degradation. Q1 peaks (January–February) correspond to post-harvest demand surges in agricultural counties.</p>
-
-        <h4>Field Agent Performance</h4>
-        <p>K-Means clustering segmented agents into three tiers. Tier-1 agents (top 30%) achieved average delivery times of 2.8 days; Tier-3 agents averaged 8.1 days. Tenure and route familiarity were the strongest predictors of agent performance.</p>
-
-        <h4>Recommendations</h4>
-        <ul>
-          <li>Establish a satellite warehouse in Lodwar (Turkana) — modelling suggests this would reduce average delivery time in the north by 40%.</li>
-          <li>Implement dynamic route optimisation using real-time road condition data for all deliveries exceeding 120km.</li>
-          <li>Redistribute agent workloads in Q4 using a load-balancing algorithm to cap any single agent at 60 active deliveries.</li>
-          <li>Pre-stock satellite locations with 90-day inventory ahead of Q4 rains to decouple distribution from central warehouse supply chains.</li>
-        </ul>
-
-        <div class="highlight">
-          <strong>Cost Impact:</strong> Satellite warehouse investment (est. KES 4.2M) would break even in under 14 months based on current fuel, agent overtime, and customer churn costs attributed to late deliveries.
-        </div>
-      `
-    }
-  };
-
-  /* ── MODAL LOGIC ──────────────────────────────────── */
-  function openReport(key) {
-    const r = reports[key];
-    document.getElementById('modalTitle').textContent = r.title;
-    document.getElementById('modalBody').innerHTML = r.content;
-    document.getElementById('modalDownload').href = r.file;
-
-    // Try loading from actual .txt file first, fall back to embedded content
-    fetch(r.file)
-      .then(res => { if (!res.ok) throw new Error(); return res.text(); })
-      .then(text => {
-        // File exists — convert plain text to HTML paragraphs and show
-        const html = `<div class="stat-row">${document.getElementById('modalBody').querySelector('.stat-row')?.outerHTML || ''}</div>` +
-          text.split(/\n{2,}/).map(p => `<p>${p.trim().replace(/\n/g,'<br>')}</p>`).join('');
-        // Only replace if we got meaningful content
-        if (text.trim().length > 50) {
-          const statsHtml = document.getElementById('modalBody').querySelector('.stat-row')?.outerHTML || '';
-          document.getElementById('modalBody').innerHTML = statsHtml + 
-            text.split(/\n{2,}/).map(p => `<p>${p.trim().replace(/\n/g,'<br>')}</p>`).join('');
-        }
-      })
-      .catch(() => {
-        // Keep embedded content (already set above)
-      });
-
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
+const reports = {
+  nia: {
+    title: 'NIA Irrigation Information Management System — Case Study',
+    content: `
+      <div class="stat-row">
+        <div class="s-cell"><div class="s-big">40%</div><div class="s-sm">Data Quality Improvement</div></div>
+        <div class="s-cell"><div class="s-big">5K+</div><div class="s-sm">Records Cleaned</div></div>
+        <div class="s-cell"><div class="s-big">5</div><div class="s-sm">Zones Covered</div></div>
+        <div class="s-cell"><div class="s-big">70%</div><div class="s-sm">Reporting Automation</div></div>
+      </div>
+      <h4>Organisation &amp; Context</h4>
+      <p>National Irrigation Authority (NIA) — Baringo County Field Office. Internship period: May–August 2025. Role: Data Analyst / MEL &amp; Quality Data Support Intern. The Authority manages irrigation schemes across multiple Kenyan counties. The Baringo office oversees 5 operational zones and tracks water usage, infrastructure maintenance, crop yield data, and field agent activities.</p>
+      <h4>Problem Statement</h4>
+      <p>Field data was collected on paper forms and manually consolidated into Excel files by a single data officer. Key problems identified during initial assessment:</p>
+      <ul>
+        <li>No centralised database — each zone maintained separate, incompatible spreadsheets</li>
+        <li>Monthly reporting required 3–5 days of manual consolidation</li>
+        <li>Duplicate records and missing entries were only caught after submission</li>
+        <li>No real-time visibility into operational performance for field supervisors</li>
+        <li>Root Cause Analysis was unsupported by structured data — incidents investigated without reliable baselines</li>
+      </ul>
+      <div class="highlight"><strong>Scope:</strong> 5,000+ records across 5 operational zones. 4-month implementation. Built entirely with open-source tools — Python, SQLite, Streamlit — at no software cost to the Authority.</div>
+      <h4>Methodology</h4>
+      <ul>
+        <li><strong>Data audit:</strong> Profiled all existing Excel files to identify quality issues — missing values, duplicates, inconsistent date formats, out-of-range values</li>
+        <li><strong>Data cleaning:</strong> Applied systematic cleaning using Pandas — standardised field names, resolved duplicates, filled estimable nulls, flagged irrecoverable records for re-collection</li>
+        <li><strong>Database design:</strong> Designed a normalised SQLite schema with tables for zones, infrastructure assets, water usage readings, and agent records</li>
+        <li><strong>Validation layer:</strong> Built automated checks that flag entries in real time — duplicate detection, out-of-range enforcement, mandatory field checks</li>
+        <li><strong>Dashboard:</strong> Developed Streamlit application with zone-level performance views, trend charts, and exportable monthly report templates</li>
+      </ul>
+      <h4>Key Outcomes</h4>
+      <ul>
+        <li>Data accuracy improved by 40%, measured by reduction in flagged errors between pre- and post-implementation audit</li>
+        <li>Report generation time reduced from 3–5 days to same-day automated export</li>
+        <li>Field supervisors adopted the dashboard for daily monitoring within 3 weeks of deployment</li>
+        <li>3 irrigation underperformance incidents investigated using system-generated defect summaries</li>
+        <li>Recurring data entry errors dropped by over 60% after validation layer deployment</li>
+      </ul>
+      <h4>Tools Used</h4>
+      <ul>
+        <li>Python (Pandas, NumPy) — data cleaning and validation logic</li>
+        <li>SQLite — database design and query layer</li>
+        <li>Streamlit — operational monitoring dashboard</li>
+        <li>Excel — field data templates and final report exports for NIA stakeholders</li>
+      </ul>`
+  },
+  health: {
+    title: 'Malaria Burden in Western Kenya: A 5-Year Analysis',
+    content: `
+      <div class="stat-row">
+        <div class="s-cell"><div class="s-big">58%</div><div class="s-sm">Western Region Share</div></div>
+        <div class="s-cell"><div class="s-big">+23%</div><div class="s-sm">5-Year Case Increase</div></div>
+        <div class="s-cell"><div class="s-big">+40%</div><div class="s-sm">Mortality in Low-Access Areas</div></div>
+        <div class="s-cell"><div class="s-big">12</div><div class="s-sm">Regions Analysed</div></div>
+      </div>
+      <div class="highlight"><strong>Dataset transparency:</strong> Synthetic dataset of 96 region-disease-year combinations, generated to reflect WHO Kenya Health Indicator distributions for 2018–2025. Not sourced from a live government database.</div>
+      <h4>Executive Summary</h4>
+      <p>This analysis models 8 years of health facility records across 12 Kenyan regions, focusing on disease incidence, healthcare access, and resource allocation efficiency for 8 notifiable diseases.</p>
+      <h4>Regional Disease Burden</h4>
+      <p>Western Kenya recorded 58% higher disease incidence than the national average. Malaria accounted for approximately 43% of all cases in this region versus a national average of 28%. Healthcare access scores below 0.5 correlated with 40% higher mortality rates — identifying infrastructure gaps as the primary driver of poor outcomes.</p>
+      <h4>Trend Analysis</h4>
+      <p>Malaria cases increased 23% over the five-year window. Seasonal peaks in April–May and October–November align with long and short rains, confirming climate-driven transmission patterns.</p>
+      <ul>
+        <li>Nyanza sub-region: +31% year-on-year increase (2021–2022)</li>
+        <li>Western region: lowest average healthcare access score (0.38)</li>
+        <li>Nairobi/Central: access scores above 0.75; lowest incidence rates</li>
+      </ul>
+      <h4>Recommendations</h4>
+      <ul>
+        <li>Redirect at least 40% of national malaria prevention budget to the three highest-burden sub-regions</li>
+        <li>Deploy mobile health units to all facilities with access scores below 0.5</li>
+        <li>Pre-position antimalarial drug stocks by February and September to prevent stock-outs during peak transmission windows</li>
+        <li>Invest in community health worker networks in Nyanza to improve early case detection</li>
+      </ul>`
+  },
+  fintech: {
+    title: 'Mobile Money Usage Patterns: Risk Segmentation Report',
+    content: `
+      <div class="stat-row">
+        <div class="s-cell"><div class="s-big">50K+</div><div class="s-sm">Transactions</div></div>
+        <div class="s-cell"><div class="s-big">3×</div><div class="s-sm">Under-25 Default Rate</div></div>
+        <div class="s-cell"><div class="s-big">65%</div><div class="s-sm">Volume from Top 20%</div></div>
+        <div class="s-cell"><div class="s-big">0.85</div><div class="s-sm">AUC-ROC Score</div></div>
+      </div>
+      <div class="highlight"><strong>Dataset transparency:</strong> Synthetic dataset of 50,000 transactions across 5,000 customers, generated to mirror mobile money lending behaviour patterns in Kenya. Not sourced from Safaricom or any financial institution.</div>
+      <h4>Executive Summary</h4>
+      <p>This analysis profiles credit risk, segments customer behaviour, and evaluates a predictive default model for mobile lending products.</p>
+      <h4>Customer Risk Segments</h4>
+      <p>K-Means clustering (k=4) identified four segments: High-Value/Low-Risk (23%), Medium-Value/Medium-Risk (38%), Low-Value/High-Risk (27%), and Dormant (12%). The Medium-Value segment represents the optimal lending target — stable transaction frequency, moderate loan amounts, and default rates below 8%.</p>
+      <h4>Age-Based Default Analysis</h4>
+      <ul>
+        <li><strong>18–24:</strong> 34% default rate — 3× higher than average</li>
+        <li><strong>25–34:</strong> 12% default rate — aligned with market average</li>
+        <li><strong>35–50:</strong> 7% default rate — best performing cohort</li>
+      </ul>
+      <h4>Model Performance</h4>
+      <p>The Random Forest classifier achieved AUC-ROC of 0.85, outperforming logistic regression baseline (0.71). Top predictors: transaction variance, days since last activity, age group, and income level.</p>
+      <h4>Recommendations</h4>
+      <ul>
+        <li>Cap initial credit limits for 18–24 cohort at KES 2,000 with staged increases tied to repayment history</li>
+        <li>Launch premium lending product for Medium-Value/Low-Risk segment</li>
+        <li>Implement real-time flags for rapid balance drawdowns — top predictor in the model</li>
+        <li>Introduce a 30-day financial literacy module for new users under 25 before credit eligibility</li>
+      </ul>`
+  },
+  ops: {
+    title: 'Last-Mile Logistics Efficiency: Delivery Bottleneck Analysis',
+    content: `
+      <div class="stat-row">
+        <div class="s-cell"><div class="s-big">10K+</div><div class="s-sm">Delivery Records</div></div>
+        <div class="s-cell"><div class="s-big">80%</div><div class="s-sm">Delays from 3 Regions</div></div>
+        <div class="s-cell"><div class="s-big">+35%</div><div class="s-sm">Q4 Delivery Time Increase</div></div>
+        <div class="s-cell"><div class="s-big">−40%</div><div class="s-sm">Potential Time Saving</div></div>
+      </div>
+      <div class="highlight"><strong>Dataset transparency:</strong> Synthetic dataset of 10,000+ delivery records modelled on last-mile distribution logistics in Kenya. Not sourced from BURN Manufacturing or any logistics provider.</div>
+      <h4>Executive Summary</h4>
+      <p>This analysis benchmarks field agent productivity, identifies systemic delay causes, and models logistics optimisation scenarios across 16 Kenyan counties.</p>
+      <h4>Delay Root Cause Analysis</h4>
+      <ul>
+        <li><strong>Distance from central warehouse (45% weight):</strong> Average last-mile distance of 187km in high-delay regions vs. 62km nationally</li>
+        <li><strong>Road condition seasonality (31% weight):</strong> High-delay regions scored below 3/10 on passability during rainy season</li>
+        <li><strong>Agent workload concentration (24% weight):</strong> Top 5 agents handle 38% of northern-region deliveries — single points of failure</li>
+      </ul>
+      <h4>Field Agent Performance</h4>
+      <p>K-Means clustering segmented agents into three performance tiers. Tier-1 agents (top 30%) averaged 2.8 days delivery time; Tier-3 agents averaged 8.1 days. Tenure and route familiarity were the strongest performance predictors.</p>
+      <h4>Recommendations</h4>
+      <ul>
+        <li>Establish satellite warehouse in highest-delay region — modelling suggests 40% reduction in delivery time</li>
+        <li>Implement route optimisation for all deliveries exceeding 120km</li>
+        <li>Redistribute agent workloads in Q4 using load-balancing, capping any single agent at 60 active deliveries</li>
+        <li>Pre-stock satellite locations with 90-day inventory ahead of Q4 rains</li>
+      </ul>
+      <div class="highlight"><strong>Cost Impact:</strong> Satellite warehouse investment (est. KES 4.2M) would break even in under 14 months based on fuel, agent overtime, and customer churn costs attributed to late deliveries.</div>`
   }
+};
 
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeIfBackdrop(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function openReport(key) {
+  const r = reports[key];
+  document.getElementById('modalTitle').textContent = r.title;
+  document.getElementById('modalBody').innerHTML = r.content;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeIfBackdrop(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+function toggleMethod(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('visible');
+  body.classList.toggle('visible', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
